@@ -1,0 +1,27 @@
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 1px 4px hsla(0, 3%, 11%, 0.1);
+  z-index: 201;
+}
+
+.header h1 {
+  margin-left: 15%;
+}
+
+.header .icon {
+  margin-right: 15%;
+  font-size: 33px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.header .icon:hover {
+    transform: scale(1.15);
+}
