@@ -1,6 +1,7 @@
 import React from "react";
 import "./section.css";
 import CartItem from "../../components/CartItem";
+import Chat from './../chat/Chat';
 
 const Section = ({ addToCart, products }) => {
   return (
@@ -16,6 +17,7 @@ const Section = ({ addToCart, products }) => {
             add={() => addToCart(product.node.id)}
           />
         ))}
+        <Chat />
       </div>
     </section>
   );

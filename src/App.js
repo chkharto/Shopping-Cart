@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./containers/header/Header";
 import Section from "./containers/section/Section";
+import Chat from "./containers/chat/Chat";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -9,7 +10,6 @@ function App() {
 
   const addToCart = (key) => {
     const product = products.find((product) => product.node.id === key);
-    console.log(products);
 
     if (!product) {
       console.error(`Product with key ${key} does not exist.`);
@@ -17,13 +17,10 @@ function App() {
     }
 
     setCart((prevCart) => {
-      // Check if the product is already in the cart
       const existingProduct = prevCart.find((item) => item.node.id === key);
       if (existingProduct) {
-        // Increment the quantity if it already exists
         return prevCart.map((item) => item);
       } else {
-        // Add the product with a quantity of 1 if it does not exist
         return [...prevCart, { ...product }];
       }
     });
@@ -45,7 +42,6 @@ function App() {
         );
         const response = await request.json();
         setProducts(response.data.products.edges);
-        console.log(response.data.products.edges);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -58,7 +54,8 @@ function App() {
     <div className="App">
       <Header cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
       <Section addToCart={addToCart} products={products} />
-    </div>
+      <Chat />
+    </div> 
   );
 }
 

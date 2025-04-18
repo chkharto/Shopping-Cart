@@ -13,7 +13,7 @@ const SideBar = ({ isOpen, click, cart, removeFromCart, setCart }) => {
     setQuantities((prevQuantities) => ({
       ...prevQuantities,
       [id]: quantity,
-    }));
+    })); 
   };
 
   const total = cart.reduce((sum, item) => {
